@@ -30,6 +30,13 @@ const getNumberOfRepos = async (req: Request, res: Response) => {
     const data = (await response.json()) as GithubUserData;
     const repos: string = data.public_repos.toString();
     //set Data with expiration to redis
+
+    /**
+     * @description Params description for the client.setEx method
+     * @param {string} username - The github user username, also the key for the cache.
+     * @param {number} seconds - The cache TTL
+     * @param {string} repos -  The number of github repositories for the user and the value for the above key
+     */
     client.setEx(username, 3600, repos);
 
     res.send(setResponse(username, repos));
