@@ -20,6 +20,12 @@ Takes the github username and returns the cache.
 
 ## Run Locally
 
+## Redis is required for this to run locally.
+
+For installation instructions : https://redis.io/docs/getting-started/
+
+## If you have Redis installed :
+
 Clone the project
 
 ```bash
@@ -53,3 +59,7 @@ https://redis.io
 #### NPM
 
 https://www.npmjs.com/package/redis
+
+## Demo
+
+https://redis-ts-cache.onrender.com/repos/comingback2life
