@@ -11,8 +11,15 @@ const PORT: number = parseInt(
   10
 );
 
-const client: RedisClientType = redis.createClient();
+let client: RedisClientType;
 
+if (process.env.NODE_ENV === 'production') {
+  client = redis.createClient({
+    url: process.env.REDIS_URL,
+  });
+} else {
+  client = redis.createClient();
+}
 client.connect();
 
 const app = express();

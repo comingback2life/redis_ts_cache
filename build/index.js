@@ -41,7 +41,15 @@ import redis from 'redis';
 var PORT = parseInt(process.env.NODE_ENV === 'production'
     ? process.env.PORT
     : '8000', 10);
-var client = redis.createClient();
+var client;
+if (process.env.NODE_ENV === 'production') {
+    client = redis.createClient({
+        url: process.env.REDIS_URL,
+    });
+}
+else {
+    client = redis.createClient();
+}
 client.connect();
 var app = express();
 var setResponse = function (username, repos) {
