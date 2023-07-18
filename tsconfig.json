@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",                          
-    "module": "commonjs",                    
+    "target": "ES5",                          
+    "module": "ES2015",                    
     "lib": ["es6"],                     
     "allowJs": true,
     "outDir": "build",                          
@@ -9,6 +9,12 @@
     "strict": true,         
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+    "moduleResolution": "Node"
+  },  
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
+
 }
